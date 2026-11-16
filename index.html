@@ -262,7 +262,7 @@ const range = (a,b) => Array.from({length:b-a+1},(_,i)=>a+i);
 function buildPaper(k){
   const E = EXAMS[k]; let h = "";
   h += `<h2 class="sec">一、听力 · Nghe<small>Câu 1–30 · ${SCORE.L} điểm</small></h2>`;
-  if (E.audioNote) h += `<div class="warn">⚠ ${esc(E.audioNote)}</div>`;
+  if (E.audioNote) h += `<div class="warn">ℹ ${esc(E.audioNote)}</div>`;
   h += part("第一部分 · Phần 1","Câu 1–10 · Nghe hội thoại, chọn hình phù hợp",
     grp("Câu 1–5") + gallery(k,"l1a","D") + `<div class="qs">${range(1,5).map(n=>q(n,listenHint("Nghe hội thoại và chọn hình"),btns(n,"D"))).join("")}</div>` +
     grp("Câu 6–10") + gallery(k,"l1b","",5) + `<div class="qs">${range(6,10).map(n=>q(n,listenHint("Nghe hội thoại và chọn hình"),btns(n,"",5))).join("")}</div>`,
@@ -310,7 +310,7 @@ function renderHome(){
     const best = H.filter(h=>h.exam==k).reduce((m,h)=>Math.max(m,h.total),-1);
     const draft = Object.keys(store.get("hsk3_draft_"+k,{})).length;
     return `<div class="pick"><div class="n">全真模拟试卷 ${k}</div><div class="m">HSK 3 3.0 · ${e.title} · ${NQ} câu · khoảng 80 phút</div>
-      ${e.audioNote?`<div class="pnote">⚠ File nghe bị lỗi: chỉ có câu 1–17</div>`:""}
+      ${e.audioNote?`<div class="pnote">ℹ Câu 18–30 dùng giọng đọc máy</div>`:""}
       <div class="best">${best>=0?`Điểm cao nhất: ${best}/${MAX}`:""}${draft?` <span style="color:var(--muted)">· đang làm dở ${draft}/${NQ} câu</span>`:""}</div>
       <button class="btn" data-k="${k}">${draft?"Làm tiếp":"Bắt đầu làm"} ${e.title}</button></div>`}).join("");
   $("#hist").innerHTML = H.length ? `<div class="histw"><table class="hist"><tr><th>Thời gian</th><th>Học viên</th><th>Đề</th><th>Nghe</th><th>Đọc</th><th>Viết</th><th>Tổng</th></tr>${

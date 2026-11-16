@@ -8,12 +8,14 @@ window.SCORE = { L: 100, R: 100, W: 100, pass: 180 };
 window.EXAMS = {
 1: {
   title: "Đề 01", audio: "audio/de1.m4a",
-  // File nghe gốc của đề 1 bị lỗi: chỉ có câu 1–17 rồi phát lại từ đầu. Khi có file đúng, thay audio/de1.m4a,
-  // điền đủ 30 mốc vào qt, thêm mốc Phần 3 vào parts và xoá dòng audioNote.
-  audioNote: "File nghe gốc của đề này bị lỗi: chỉ có câu 1–17 (câu 16 chỉ đọc 1 lần). Câu 18–30 chưa có âm thanh — xem lời thoại sau khi nộp bài.",
+  // File nghe gốc của đề 1 bị lỗi (chỉ có câu 1–17 rồi phát lại từ đầu). Câu 18–30 được tạo bằng giọng đọc máy
+  // theo đúng lời thoại (听力文本) và ghép vào sau câu 17. Khi có file gốc đầy đủ: thay audio/de1.m4a, sửa lại qt/parts/end và xoá audioNote.
+  audioNote: "File nghe gốc của đề này bị thiếu câu 18–30, nên các câu đó dùng giọng đọc máy theo đúng lời thoại (câu 16 chỉ đọc 1 lần).",
   // mốc (giây): Phần 1 · Phần 2 (câu 11–15) · Phần 2 (câu 16–20) · Phần 3
-  parts: [60, 444, 727], end: 929,
-  qt: [88.7,126.7,162.7,193.7,231.7,265.7,298.7,334.7,371.7,408.7, 494.7,543.7,589.7,636.7,679.7, 813.7,865.7],
+  parts: [60, 444, 727, 1108.5], end: 1643.5,
+  qt: [88.7,126.7,162.7,193.7,231.7,265.7,298.7,334.7,371.7,408.7, 494.7,543.7,589.7,636.7,679.7, 813.7,865.7,929.1,986.6,1045.5,
+       1155.4,1200.1,1242.2,1284.5,1328.2,1372.8,1419.5,1469.9,1513.2,1581.1],
+  qe: {29: 1549.9},   // câu 29–30 nghe chung một đoạn
   key: "CAFEB EADCB CBAAC CCBCB CCABA CBCBC  BEAFC AECDB CEBDF EFACD ABCCA ABABA  汽图空方礼",
   w2key: ["她在给妈妈打电话。","她正在和朋友聊天儿。","这家咖啡店的环境很好。","妈妈每个周末都用洗衣机洗衣服。","放学后，男孩儿自己回家。"],
   tx: [
